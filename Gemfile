@@ -10,6 +10,7 @@ end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '4.0.0'
+gem 'bootstrap-sass', '2.3.2.2'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '2.1.1'
@@ -36,7 +37,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '3.1.2'
+gem 'bcrypt-ruby', '3.0.1'
 
 # Use unicorn as the app server
 # gem 'unicorn'

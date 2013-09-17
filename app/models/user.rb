@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
 	validates :nome, 
 		presence: true, 
 		length: { minimum: 3 }
-  	validates :email, 
+  validates :email, 
   		presence: true, 
   		format: { with: VALID_EMAIL_REGEX }, 
   		uniqueness: { case_sensitive: false }
-  	validates :password, 
+  validates :password, 
   		presence: true, 
   		on: :create, 
   		length: { minimum: 5 }

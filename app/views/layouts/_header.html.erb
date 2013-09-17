@@ -1,0 +1,20 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+			<% if current_user %>
+				<div class="brand">
+					Utilizador: <%= current_user.nome %>
+				</div>
+				<div class="nav-collapse collapse">
+					<ul class="nav pull-right">
+						<li><%= link_to "iMED", "http://www.imed.com.pt/imed/", target: "_blank" %></li>
+						<li><%= link_to "Ver fichas", patients_path %></li>
+						<li><%= link_to "Nova ficha", new_patient_path %></li>
+						<li><%= link_to "Subsistemas", subsystems_path %></li>
+						<li><%= link_to "Sair", log_out_path %></li>
+					</ul>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</header>
