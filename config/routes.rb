@@ -1,5 +1,5 @@
 Sampaiodaveiga::Application.routes.draw do
-  root 'sessions#new'
+  root 'patients#index'
   
   resources :patients do
     resources :diaries

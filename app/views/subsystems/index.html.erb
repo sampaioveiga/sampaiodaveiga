@@ -1,0 +1,9 @@
+<% provide(:title, "Sub-sistemas") %>
+<h1>Sub-Sistemas</h1>
+
+<%= link_to "novo", new_subsystem_path %><br />
+<% link_to "apagar", '#' %><br />
+
+<% @subsystems.each do |subsystem| %>
+	<%= link_to subsystem.nome, edit_subsystem_path(subsystem) %><br />
+<% end %>

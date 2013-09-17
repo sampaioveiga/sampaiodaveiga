@@ -1,0 +1,8 @@
+<%= form_for(@subsystem) do |f| %>
+	<%= render 'error_messages' %>
+
+	<fieldset>
+		<%= f.text_field :nome, placeholder: 'Nome' %>
+	</fieldset>
+	<%= f.submit "Guardar" %>
+<% end %>
