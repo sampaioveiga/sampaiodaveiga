@@ -1,0 +1,32 @@
+<legend>Identificação</legend>
+<dl>
+	<dt>Data de nascimento</dt>
+	<dd><%= @patient.data_de_nascimento %></dd>
+			
+	<dt>Idade:</dt> 
+	<dd><%= distance_of_time_in_words_to_now(@patient.data_de_nascimento) %></dd>
+			
+	<dt>Naturalidade:</dt> 
+	<dd><%= @patient.naturalidade %></dd>
+				
+	<dt>N. Utente:</dt> 
+	<dd><%= @patient.rnu %></dd>
+				
+	<dt>Profissão:</dt> 
+	<dd><%= @patient.profissao %></dd>
+				
+	<dt>Sub-sistema:</dt> 
+	<dd><%= @patient.subsystem.nome %> <%= @patient.servico_assistencial_numero %></dd>
+				
+	<dt>Morada:</dt>
+	<dd><%= @patient.morada %></dd>
+			
+	<dt>C. postal:</dt> 
+	<dd><%= @patient.codigo_postal %>-<%= @patient.codigo_postal_ext %></dd>
+			
+	<dt>Localidade:</dt> 
+	<dd><%= @patient.localidade %></dd>
+				
+	<dt>Contacto:</dt> 
+	<dd><%= @patient.contacto %></dd>
+</dl>

@@ -1,0 +1,36 @@
+<% provide(:title, @patient.nome) %>
+
+<h1><%= @patient.nome %></h1>
+
+<div class="row-fluid">
+	<div class="span3 well well-small">
+		<%= render 'patientid' %>
+
+		<%= link_to "Editar", edit_patient_path, class: 'btn' %>
+		<%= link_to "Eliminar", @patient, confirm: 'Eliminar ficha?', method: :delete, class: 'btn btn-danger' %>
+	</div>
+	<div class="span9 well well-small">
+		<div class="tabs">
+			<ul>
+				<li><a href="#tabs-1">Antecedentes</a></li>
+				<li><a href="#tabs-2">1ª Consulta</a></li>
+				<li><a href="#tabs-3">Diário Clínico</a></li>
+			</ul>
+			<div id="tabs-1">
+				<%= render 'patientantecedentes' %>
+			</div>
+			<div id="tabs-2">
+  				<%= render 'firstappointment' %>
+  			</div>
+  			<div id="tabs-3">
+				<div class="accordion">
+  					<%= render 'diarioclinico' %>
+  				</div>
+  			</div>
+  		</div>
+  		
+  		<div class="span11">
+  			<%= render 'newdiary' %>
+		</div>
+	</div>
+</div>

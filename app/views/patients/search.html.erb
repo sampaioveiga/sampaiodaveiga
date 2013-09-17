@@ -1,0 +1,25 @@
+<% provide(:title, 'Pesquisa') %>
+<h1>Resultados da pesquisa</h1>
+
+<% if @patients.empty? %>
+	<h2>Sem resultados</h2>
+<% else %>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Idade</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @patients.each do |patient| %>
+				<tr>
+					<td><%= link_to patient.nome, patient %></td>
+					<td><%= distance_of_time_in_words_to_now(patient.data_de_nascimento) %></td>
+					<td><%= link_to "Ver", patient %></td>
+				</tr>
+			<% end %>
+		<tbody>
+	</table>
+<% end %>

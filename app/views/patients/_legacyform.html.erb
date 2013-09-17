@@ -1,0 +1,14 @@
+<%= form_for(@patient) do |f| %>
+    <%= render 'error_messages' %>
+
+    <fieldset>
+        <legend>Antecedentes</legend>
+        
+        <label>Familiares</label>
+        <%= f.text_area :antecedentes_familiares %>
+        <label>Pessoais</label>
+        <%= f.text_area :antecedentes_pessoais %>
+    </fieldset>
+    <%= f.submit 'Guardar', class: 'btn btn-success' %>
+    <%= link_to "Retroceder", patient_path, class: 'btn' %>
+<% end %>
