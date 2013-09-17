@@ -1,6 +1,13 @@
 Sampaiodaveiga::Application.routes.draw do
   root 'patients#index'
   
+  get 'log_in' => 'sessions#new', as: :log_in
+  get 'log_out' => 'sessions#destroy', as: :log_out
+  get 'sign_up' => 'users#new', as: :sign_up
+  get 'patients/search' => 'patients#search'
+  get 'patients/:id/legacy' => 'patients#legacy', as: :legacy_patient
+  get 'patients/:id/first' => 'patients#first', as: :first_patient
+  
   resources :patients do
     resources :diaries
   end
@@ -8,13 +15,6 @@ Sampaiodaveiga::Application.routes.draw do
   resources :sessions, only: [ :new, :create, :destroy ]
   resources :users, only: [ :new, :create ]
   
-  get 'log_in' => 'sessions#new', as: :log_in
-  get 'log_out' => 'sessions#destroy', as: :log_out
-  get 'sign_up' => 'users#new', as: :sign_up
-  get 'patients/search' => 'patients#search'
-  get 'patients/:id/legacy' => 'patients#legacy', as: :legacy_patient
-  get 'patients/:id/first' => 'patients#first', as: :first_patient
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
