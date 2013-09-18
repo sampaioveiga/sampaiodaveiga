@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130916173424) do
+ActiveRecord::Schema.define(version: 20130918100244) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "diaries", force: true do |t|
     t.string   "historial"
@@ -38,12 +41,12 @@ ActiveRecord::Schema.define(version: 20130916173424) do
     t.string   "antecedentes_pessoais"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "historial"
+    t.text     "historial"
     t.string   "diagnostico"
     t.integer  "subsystem_id"
   end
 
-  add_index "patients", ["subsystem_id"], name: "index_patients_on_subsystem_id"
+  add_index "patients", ["subsystem_id"], name: "index_patients_on_subsystem_id", using: :btree
 
   create_table "subsystems", force: true do |t|
     t.string   "nome"
