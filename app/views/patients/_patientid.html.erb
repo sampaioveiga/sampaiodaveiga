@@ -15,8 +15,15 @@
 	<dt>Profissão:</dt> 
 	<dd><%= @patient.profissao %></dd>
 				
-	<dt>Sub-sistema:</dt> 
-	<dd><%= @patient.subsystem.nome %> <%= @patient.servico_assistencial_numero %></dd>
+	<dt>Sub-sistema:</dt>
+	<dd>
+		<% unless @patient.subsystem.nil? %>
+			<%= @patient.subsystem.nome %>-
+			<%= @patient.servico_assistencial_numero %>
+		<% else %>
+			N/D
+		<% end %>
+	</dd>
 				
 	<dt>Morada:</dt>
 	<dd><%= @patient.morada %></dd>
