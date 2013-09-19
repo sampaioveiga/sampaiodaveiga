@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20130918100244) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "diaries", force: true do |t|
     t.string   "historial"
     t.integer  "patient_id"
@@ -41,12 +38,12 @@ ActiveRecord::Schema.define(version: 20130918100244) do
     t.string   "antecedentes_pessoais"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "historial"
+    t.text     "historial",                   limit: 255
     t.string   "diagnostico"
     t.integer  "subsystem_id"
   end
 
-  add_index "patients", ["subsystem_id"], name: "index_patients_on_subsystem_id", using: :btree
+  add_index "patients", ["subsystem_id"], name: "index_patients_on_subsystem_id"
 
   create_table "subsystems", force: true do |t|
     t.string   "nome"

@@ -1,9 +1,22 @@
 <% provide(:title, "Sub-sistemas") %>
 <h1>Sub-Sistemas</h1>
 
-<%= link_to "novo", new_subsystem_path %><br />
-<% link_to "apagar", '#' %><br />
-
-<% @subsystems.each do |subsystem| %>
-	<%= link_to subsystem.nome, edit_subsystem_path(subsystem) %><br />
-<% end %>
+<div class="row-fluid">
+	<div class="span4 offset4">
+		<table class="table">
+			<thead>
+				<th>
+					<td></td>
+				</th>
+			</thead>
+			<tbody>
+				<% @subsystems.each do |subsystem| %>
+					<tr>
+						<td><%= link_to subsystem.nome, edit_subsystem_path(subsystem) %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<%= link_to "novo", new_subsystem_path, class: 'btn btn-success pull-right' %>
+	</div>
+</div>
