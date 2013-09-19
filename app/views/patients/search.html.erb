@@ -16,7 +16,11 @@
 			<% @patients.each do |patient| %>
 				<tr>
 					<td><%= link_to patient.nome, patient %></td>
-					<td><%= distance_of_time_in_words_to_now(patient.data_de_nascimento) %></td>
+					<% unless patient.data_de_nascimento.nil? %>
+						<td><%= distance_of_time_in_words_to_now(patient.data_de_nascimento) %></td>
+					<% else %>
+						<td></td>
+					<% end %>
 					<td><%= link_to "Ver", patient %></td>
 				</tr>
 			<% end %>

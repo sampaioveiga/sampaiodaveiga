@@ -6,8 +6,13 @@ gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
 group :development do
-	gem 'sqlite3', '1.3.8'
+	#gem 'sqlite3', '1.3.8'
+	gem 'pg', '0.17.0'
 end
+
+# paginate index
+gem 'will_paginate', '3.0.5'
+gem 'bootstrap-will_paginate', '0.0.10'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '4.0.0'

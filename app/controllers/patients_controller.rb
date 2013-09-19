@@ -2,8 +2,7 @@ class PatientsController < ApplicationController
 	before_filter :require_login
 
 	def index
-		@patients = Patient.order(:nome)
-		#@patients = Patient.order(:nome).page(params[:page])
+		@patients = Patient.paginate(page: params[:page]).order(:nome)
 	end
 
 	def show
@@ -61,7 +60,8 @@ class PatientsController < ApplicationController
 	end
 
 	def search
-		@patients = Patient.where("nome LIKE :prefix", prefix: "%#{params[:search_string].capitalize!}%")
+		@patients = Patient.where("nome LIKE :prefix", prefix: "%#{params[:search_string]}%")
+		#@patients = Patient.where("nome LIKE :prefix", prefix: "%#{params[:search_string].capitalize!}%")
 	end
 
 	private

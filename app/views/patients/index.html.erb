@@ -4,6 +4,8 @@
 
 <h1>Fichas individuais</h1>
 
+<%= will_paginate %>
+
 <table class="table">
 	<thead>
 		<tr>
@@ -11,13 +13,18 @@
 			<th>Idade</th>
 			<th>Ultima Consulta</th>
 			<th>Ultimo Diagnóstico</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
 		<% @patients.each do |patient| %>
 			<tr>
 				<td><%= link_to patient.nome, patient %></td>
-				<td><%= distance_of_time_in_words_to_now(patient.data_de_nascimento) %></td>
+				<% unless patient.data_de_nascimento.nil? %>
+					<td><%= distance_of_time_in_words_to_now(patient.data_de_nascimento) %></td>
+				<% else %>
+					<td></td>
+				<% end %>
 				<% unless patient.diaries.empty? %>
 					<td>
 						<%= patient.diaries.last.created_at.day %>/
@@ -29,7 +36,10 @@
 					<td></td>
 					<td></td>
 				<% end %>
+				<td><%= link_to "Editar", patient %></td>
 			</tr>
 		<% end %>
 	<tbody>
 </table>
+
+<%= will_paginate %>
