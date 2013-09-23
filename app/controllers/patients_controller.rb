@@ -7,6 +7,7 @@ class PatientsController < ApplicationController
 
 	def show
 		@patient = Patient.find(params[:id])
+		@diaries = @patient.diaries.order('data_consulta')
 		@patient.antecedentes_pessoais ||= "Não há registo"
 		@patient.antecedentes_familiares ||= "Não há registo"
 		@patient.historial ||= "Não há registo"

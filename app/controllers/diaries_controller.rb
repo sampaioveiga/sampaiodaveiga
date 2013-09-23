@@ -33,6 +33,6 @@ class DiariesController < ApplicationController
 		end
 
 		def diary_params
-			params.require(:diary).permit(:diagnostico, :historial)
+			params.require(:diary).permit(:diagnostico, :historial, :data_consulta)
 		end
 end

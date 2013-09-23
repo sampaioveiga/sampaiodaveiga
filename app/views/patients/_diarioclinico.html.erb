@@ -1,6 +1,6 @@
-<% @patient.diaries.each do |diary| %>
+<% @diaries.each do |diary| %>
 	<h3>
-		<%= diary.created_at.day %>/<%= diary.created_at.month %>/<%= diary.created_at.year %> | 
+		<%= diary.data_consulta %> | 
 		<%= diary.diagnostico %></h3>
 	<div>
 		<dl>

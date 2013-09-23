@@ -1,10 +1,13 @@
 <%= form_for([@patient, @patient.diaries.build]) do |f| %>
+	<%= f.submit 'Guardar nota', class: 'btn btn-success pull-right' %>
   	<fieldset>
   		<legend>Adicionar nota ao diário</legend>
-  		<%= f.submit 'Guardar', class: 'btn btn-success pull-right' %>
-  		<label>Diagnóstico</label>
+  		
+  		<%= f.label :data_consulta, "Data da Consulta" %>
+		<%= f.date_select :data_consulta %>
+  		<%= f.label :diagnostico, "Diagnóstico" %>
 		<%= f.text_field :diagnostico %>
-		<label>Historial</label>
+		<%= f.label :historial, "História Clínica" %>
 		<%= f.text_area :historial %>
 	</fieldset>
 <% end %>

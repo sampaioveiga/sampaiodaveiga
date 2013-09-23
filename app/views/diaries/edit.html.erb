@@ -6,9 +6,11 @@
 		<%= form_for([@patient,@diary]) do |f| %>
 			<fieldset>
 				<legend>Editar diário</legend>
-				<label>Diagnóstico</label>
+				<%= f.label :data_consulta %>
+				<%= f.date_select :data_consulta %>
+				<%= f.label :diagnostico, "Diagnóstico" %>
 				<%= f.text_field :diagnostico %>
-				<label>Historial</label>
+				<%= f.label :historial, "História Clínica" %>
 				<%= f.text_area :historial %>
 			</fieldset>
 			<%= f.submit 'Guardar', class: 'btn btn-success' %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130918100244) do
+ActiveRecord::Schema.define(version: 20130923094443) do
 
   create_table "diaries", force: true do |t|
     t.string   "historial"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20130918100244) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "diagnostico"
+    t.date     "data_consulta"
   end
 
   create_table "patients", force: true do |t|
