@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		@user.email.downcase!
+		@user.ativo = false
 
 		if @user.save
 			redirect_to log_in_path, notice: 'Utilizador registado com sucesso.'
