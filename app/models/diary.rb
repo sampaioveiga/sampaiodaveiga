@@ -2,5 +2,5 @@ class Diary < ActiveRecord::Base
 	belongs_to :patient
 
 	validates :diagnostico, 
-		presence: true
+		presence: { message: "não pode ser nulo" }
 end

@@ -3,14 +3,14 @@ class User < ActiveRecord::Base
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :nome, 
-		presence: true, 
-		length: { minimum: 3 }
+		presence: { message: "não pode ser nulo" }, 
+		length: { minimum: 3, message: "tem de ser mais de 3 caracteres" }
   validates :email, 
-  		presence: true, 
-  		format: { with: VALID_EMAIL_REGEX }, 
-  		uniqueness: { case_sensitive: false }
+  		presence: { message: "não pode ser nulo" }, 
+  		format: { with: VALID_EMAIL_REGEX, message: "é inválido" }, 
+  		uniqueness: { case_sensitive: false, message: "é inválido" }
   validates :password, 
-  		presence: true, 
+  		presence: { message: "não pode ser nulo" }, 
   		on: :create, 
-  		length: { minimum: 5 }
+  		length: { minimum: 5, message: "tem de ter mais de 5 caracteres" }
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130923094443) do
+ActiveRecord::Schema.define(version: 20131108141305) do
 
   create_table "diaries", force: true do |t|
     t.string   "historial"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20130923094443) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nome"
+    t.boolean  "ativo"
   end
 
 end

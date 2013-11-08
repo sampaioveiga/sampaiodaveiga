@@ -1,0 +1,26 @@
+<%= form_for([@patient, @patient.diaries.build]) do |f| %>
+	<%= f.submit 'Guardar nota', class: 'btn btn-success pull-right' %>
+  	<fieldset>
+  		<legend>Adicionar nota ao diário</legend>
+		<div id="datetimepicker" class="input-append date">
+        	<%= f.label :data_consulta, "Data da Consulta" %>
+			<%= f.text_field :data_consulta %>
+			<span class="add-on">
+				<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+			</span>
+		</div>
+  		<%= f.label :diagnostico, "Diagnóstico" %>
+		<%= f.text_field :diagnostico %>
+		<%= f.label :historial, "História Clínica" %>
+		<%= f.text_area :historial %>
+	</fieldset>
+<% end %>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#datetimepicker').datetimepicker({
+            format: 'yyyy-MM-dd',
+            pickTime: false
+        });
+    });
+</script>

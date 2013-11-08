@@ -2,6 +2,6 @@ class Subsystem < ActiveRecord::Base
 	has_many :patients
 
 	validates :nome, 
-		presence:true, 
-		uniqueness: true
+		presence: { message: "não pode ser nulo"}, 
+		uniqueness: { message: "já existe" }
 end

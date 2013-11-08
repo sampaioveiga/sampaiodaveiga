@@ -10,24 +10,33 @@
 		<%= link_to "Eliminar", @patient, confirm: 'Eliminar ficha?', method: :delete, class: 'btn btn-danger' %>
 	</div>
 	<div class="span9 well well-small tabs">
-		<ul>
-			<li><a href="#tabs-1">Antecedentes</a></li>
-			<li><a href="#tabs-2">1ª Consulta</a></li>
-			<li><a href="#tabs-3">Diário Clínico</a></li>
+		<ul class="nav nav-tabs">
+			<li><a href="#tabs-1" data-target="#tabs-1" data-toggle="tab">Antecedentes</a></li>
+			<li><a href="#tabs-2" data-target="#tabs-2" data-toggle="tab">1ª Consulta</a></li>
+			<li class="active"><a href="#tabs-3" data-target="#tabs-3" data-toggle="tab">Diário Clínico</a></li>
 		</ul>
-		<div id="tabs-1">
-			<%= render 'patientantecedentes' %>
-		</div>
-		<div id="tabs-2">
-  			<%= render 'firstappointment' %>
-  		</div>
-  		<div id="tabs-3">
-			<div class="accordion">
-  				<%= render 'diarioclinico' %>
-  			</div>
-  			<div class="span11">
-  				<%= render 'newdiary' %>
+		<div class="tab-content">
+			<div class="tab-pane" id="tabs-1">
+				<%= render 'patientantecedentes' %>
 			</div>
+			<div class="tab-pane" id="tabs-2">
+  				<%= render 'firstappointment' %>
+  			</div>
+  			<div class="tab-pane active fade in" id="tabs-3">
+  				<%= render 'diaries/show' %>
+  				<div class="span11">
+  					<%= render 'diaries/new' %>
+				</div>
+  			</div>
   		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#datetimepicker').datetimepicker({
+            format: 'yyyy-MM-dd',
+            pickTime: false
+        });
+    });
+</script>
